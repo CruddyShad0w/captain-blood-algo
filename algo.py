@@ -38,7 +38,7 @@ def initialize(context):
     trading_minutes = int(trading_hours * 60)
     for minutez in range(1, trading_minutes, minutes):
         schedule_function(
-				submit_sell,
+				rebalance,
                 date_rules.every_day(),
                 time_rules.market_open(
                     minutes=minutez))
@@ -131,6 +131,9 @@ def submit_buy(stock, context, data, weight):
                     cancel_order(open_order)
 
     order(context.stock, shares_to_buy)
+def rebalance(stock, context, data, weight):
+	submit_sell(stock, context, data)
+	submit_buy(stock, context, data, weight)
 
 def my_record_vars(context, data):
     """
