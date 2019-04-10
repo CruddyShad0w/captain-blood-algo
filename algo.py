@@ -39,7 +39,6 @@ def initialize(context):
     for minutez in range(1, trading_minutes, minutes):
         schedule_function(
 				submit_sell,
-				submit_buy,
                 date_rules.every_day(),
                 time_rules.market_open(
                     minutes=minutez))
