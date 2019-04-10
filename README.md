@@ -1,5 +1,5 @@
-# long-only-non-day-algo
-Heroku worker for reversion algorithm
+# captain-blood-algo
+Heroku worker for Captain Blood's algorithm
 
 ## Setup
 First you will need to set up a heroku app and install a few buildpacks.
@@ -30,7 +30,9 @@ You can verify the app is running by navigating to the logs in your dashboard.
 To do this click the More drop down and select logs.
 You should see output similar to:
 ```
- 
+Apr 10 16:22:33 captain-blood-algo heroku/worker.1: Starting process with command `pylivetrader run -f algo.py` 
+Apr 10 16:22:34 captain-blood-algo heroku/worker.1: State changed from starting to up 
+Apr 10 16:22:42 captain-blood-algo app/worker.1: [2019-04-10 23:22:41.803070] INFO: Algorithm: livetrader start running with backend = alpaca data-frequency = minute 
 ```
 
 You can also verify the logs through an ssh tunnel.
