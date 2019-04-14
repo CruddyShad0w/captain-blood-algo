@@ -8,18 +8,18 @@ from pylivetrader.api import (
 
 #Test with 'handle data' then try 'rebalance'
 def initialize(context):
-	EveryThisManyMinutes = 1
+    EveryThisManyMinutes = 1
     TradingDayHours = 6.5
     TradingDayMinutes = int(TradingDayHours * 60)
-	for minutez in range(1, TradingDayMinutes, EveryThisManyMinutes)
-		schedule_function(
-			grab_data,
-			date_rules.every_day(),
-			time_rules.market_open(minutes=minutez))
-		schedule_function(
-			handle_trade,
-			date_rules.every_day(),
-			time_rules.market_open(minutes=minutez))
+    for minutez in range(1, TradingDayMinutes, EveryThisManyMinutes)
+	schedule_function(
+		grab_data,
+		date_rules.every_day(),
+		time_rules.market_open(minutes=minutez))
+	schedule_function(
+		handle_trade,
+		date_rules.every_day(),
+		time_rules.market_open(minutes=minutez))
 
 def grab_data(context, data):
     dgaz_two_week_price = data.history(
